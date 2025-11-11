@@ -3,9 +3,34 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+const Card = ({title, newID}) => {
+  return (
+    <div className="boxes" id={newID}>
+      <h2>{title}</h2>
+    </div>
+  )
+}
+
+
 const App = () => {
   return (
-    <h2>Welcome to my React Website!</h2>
+    
+    <div className='app'>
+      <h2>Hello msg</h2>
+      <div className='container'>
+        {/* <Card title="Hello Msg" newID='one'/> */}
+        <Card title="Tasks" newID='two'/>
+        <Card title="Note to self" newID='three'/>
+        <Card title="Weather" newID='four' />
+        <Card title="News" newID='five'/>
+        <Card title="Word of the day" newID='six'/>
+        <Card title="Learn a language" newID='seven'/>
+        <Card title="Quote of the day" newID='eight'/>
+        <Card title="Fun Fact" newID='nine'/>
+        <Card title="Calendar" newID='ten'/>
+        <Card title="Music" newID='eleven'/>
+      </div>
+    </div>
   )
 }
 // function App() {
