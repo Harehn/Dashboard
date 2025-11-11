@@ -3,36 +3,39 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-const Card = ({title, newID}) => {
-  return (
-    <div className="boxes" id={newID}>
-      <h2>{title}</h2>
+const Wrapper = (props) => {
+    return (
+    <div className="boxes" id={props.newID}>
+      <h2>{props.title}</h2>
+      {props.children}
     </div>
-  )
+  );
 }
-
 
 const App = () => {
   return (
-    
     <div className='app'>
       <h2>Hello msg</h2>
       <div className='container'>
-        {/* <Card title="Hello Msg" newID='one'/> */}
-        <Card title="Tasks" newID='two'/>
-        <Card title="Note to self" newID='three'/>
-        <Card title="Weather" newID='four' />
-        <Card title="News" newID='five'/>
-        <Card title="Word of the day" newID='six'/>
-        <Card title="Learn a language" newID='seven'/>
-        <Card title="Quote of the day" newID='eight'/>
-        <Card title="Fun Fact" newID='nine'/>
-        <Card title="Calendar" newID='ten'/>
-        <Card title="Music" newID='eleven'/>
+        <Wrapper title="Tasks" newID='two'><p>Second task</p></Wrapper>
+        <Wrapper title="Note to self" newID='three'/>
+        <Wrapper title="Weather" newID='four' />
+        <Wrapper title="News" newID='five'/>
+        <Wrapper title="Word of the day" newID='six'/>
+        <Wrapper title="Learn a language" newID='seven'/>
+        <Wrapper title="Quote of the day" newID='eight'/>
+        <Wrapper title="Fun Fact" newID='nine'/>
+        <Wrapper title="Calendar" newID='ten'>
+          <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&ctz=America%2FToronto&showPrint=0&mode=AGENDA&showTitle=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%239e69af&color=%230b8043" frameborder="0" scrolling="no"></iframe>
+        </Wrapper>
+        <Wrapper title="Music" newID='eleven'/>
       </div>
     </div>
   )
 }
+
+// style="border-width:0" width="500" height="400" frameborder="0" scrolling="no"
+
 // function App() {
 //   const [count, setCount] = useState(0)
 
@@ -47,7 +50,7 @@ const App = () => {
 //         </a>
 //       </div>
 //       <h1>Vite + React</h1>
-//       <div className="card">
+//       <div className="Wrapper">
 //         <button onClick={() => setCount((count) => count + 1)}>
 //           count is {count}
 //         </button>
