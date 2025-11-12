@@ -6,7 +6,7 @@ import './App.css'
 const Wrapper = (props) => {
     return (
     <div className="boxes" id={props.newID}>
-      <h2>{props.title}</h2>
+      <h3>{props.title}</h3>
       {props.children}
     </div>
   );
@@ -17,8 +17,23 @@ const App = () => {
     <div className='app'>
       <h1>Hello Nitin!!</h1>
       <div className='container'>
-        <Wrapper title="Tasks" newID='two'><p>Second task</p></Wrapper>
-        <Wrapper title="Note to self" newID='three'/>
+        <Wrapper title="Tasks" newID='two'>
+          <input type="checkbox" id="task1" name="task1" value=""/>
+          <label for="task1">Read emails</label> <br/>
+          <input type="checkbox" id="task2" name="task2" value=""/>
+          <label for="task2">House chores</label> <br/>
+          <input type="checkbox" id="task3" name="task3" value=""/>
+          <label for="task3"> Exercise</label> <br/>
+          <input type="checkbox" id="task4" name="task4" value=""/>
+          <label for="task4">Journal</label> <br/>
+        </Wrapper>
+        <Wrapper title="Note to self" newID='three'>
+          <ol>
+            <li>Do not let the fear of failure hold you back.</li>
+            <li>When in doubt, take a deep breath first.</li>
+            <li>Do not rush and plan first. Failing to plan is planning to fail.</li>
+          </ol>
+        </Wrapper>
         <Wrapper title="Weather" newID='four' />
         <Wrapper title="News" newID='five'/>
         <Wrapper title="Word of the day" newID='six'/>
