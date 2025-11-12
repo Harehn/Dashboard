@@ -18,10 +18,11 @@
 }
 
 iframe{
-  height:90%;
+  height:85%;
   width: 90%;
   padding:0;
-  margin:0;
+  margin:auto;
+  /* margin-top: 1%;; */
   border-width:0;
   /* scrolling:"no"; */
   border-radius: 20px;
@@ -37,13 +38,7 @@ h2:hover {
   transform:translateX(0.5%);
    padding-left: 1%; 
 }
-
-.full-line {
-  border-image: 
-   linear-gradient(0deg,#555657 2px,#0000 0) fill 0;
-  padding: 0 0;
-  margin: 0 5%;
-} */
+*/
 
 
 .container {

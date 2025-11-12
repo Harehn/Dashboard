@@ -15,7 +15,7 @@ const Wrapper = (props) => {
 const App = () => {
   return (
     <div className='app'>
-      <h2>Hello msg</h2>
+      <h1>Hello Nitin!!</h1>
       <div className='container'>
         <Wrapper title="Tasks" newID='two'><p>Second task</p></Wrapper>
         <Wrapper title="Note to self" newID='three'/>
@@ -26,7 +26,7 @@ const App = () => {
         <Wrapper title="Quote of the day" newID='eight'/>
         <Wrapper title="Fun Fact" newID='nine'/>
         <Wrapper title="Calendar" newID='ten'>
-          <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&ctz=America%2FToronto&showPrint=0&mode=AGENDA&showTitle=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%239e69af&color=%230b8043" frameborder="0" scrolling="no"></iframe>
+          <iframe src="https://calendar.google.com/calendar/embed?height=200&wkst=1&ctz=America%2FToronto&showPrint=0&mode=AGENDA&showTitle=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%239e69af&color=%230b8043" frameborder="0" scrolling="no"></iframe>
         </Wrapper>
         <Wrapper title="Music" newID='eleven'/>
       </div>
