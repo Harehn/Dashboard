@@ -1,3 +1,72 @@
+.footer-container {
+  background-color: #B497D6;
+}
+.footer{
+    margin-top: 1%;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height:100%;
+  /* padding: 0 0.5% 0 0; */
+    /* padding-top: 10; */
+
+  overflow: auto;
+  /* background-color: #810c7738;   */
+    background-color: #8a73a3;
+    backdrop-filter: blur(2px);
+    background-blend-mode: darken;
+
+
+  position: -webkit-sticky; /* Safari */
+  /* position: sticky; */
+  bottom: 0;
+  position:bottom;
+  text-align:center;
+  display:flex;
+  flex-wrap:wrap;
+  overflow:auto;
+}
+
+.footer a{
+text-decoration:none;
+color: white;
+transition:0.5s;
+/* padding-top:1%; */
+padding-right:1%;
+padding-left:1%;
+}
+
+.footer a:hover{
+color:darkgray;
+}
+
+.footer .row ul li{
+list-style-type: none;
+}
+
+.links {
+  padding-top: 1.5%;
+  padding-bottom:2%;
+    
+  padding-left: 30%;
+  padding-right:30%;
+  width:100%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.footer p {
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* background-color: #B497D6; */
+
+}
+
 .boxes {
   padding:0;
   margin:3px;
@@ -64,6 +133,9 @@ h2:hover {
 
 .app {
   height:100vh;
+  display:flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;;
 }
 
 #one {

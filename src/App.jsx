@@ -12,6 +12,21 @@ const Wrapper = (props) => {
   );
 }
 
+const Footer = () => {
+  return (
+    <footer className='footer-container'>
+      <div className='footer'>
+        <div class="links">
+          <a href="#">About Website</a>
+          <a href="https://harehn-kaundun.onrender.com/wip">About Me</a>
+          <a href="https://harehn-kaundun.onrender.com/Contact">Contact Me</a>
+        </div>
+        <p>Copyright © 2025 All rights reserved || Designed By: Nitin </p>
+      </div>
+    </footer>
+  );
+}
+
 const App = () => {
   return (
     <div className='app'>
@@ -45,6 +60,7 @@ const App = () => {
         </Wrapper>
         <Wrapper title="Music" newID='eleven'/>
       </div>
+      <Footer/>
     </div>
   )
 }
