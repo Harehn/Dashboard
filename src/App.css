@@ -3,9 +3,9 @@
   height:100%;
   overflow: auto;
   background-color: #8a73a3;
-  position: -webkit-sticky; /* Safari */
-  bottom: 0;
-  position:bottom;
+  /*position: -webkit-sticky; /* Safari */
+  /* bottom: 0; */
+  /* position:bottom; */
   text-align:center;
   display:flex;
   flex-wrap:wrap;
@@ -98,6 +98,7 @@ iframe{
   display:flex; 
   flex-direction: column; 
   background-color: #B497D6;
+  height: fit-content;
 }
 
 @media screen and (min-width: 768px) {
