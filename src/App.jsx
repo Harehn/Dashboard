@@ -36,7 +36,7 @@ async function fetchRSS() {
     const response = await fetch(fetchUrl);
     const data = await response.text();
     
-    console.log('Data fetched:', data); // Debugging 2: Log the raw data
+    // console.log('Data fetched:', data); // Debugging 2: Log the raw data
     
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(data, "application/xml");
@@ -44,19 +44,43 @@ async function fetchRSS() {
     const str = item.querySelector("description").textContent;
     const innerdocs = parser.parseFromString(str, "text/html").querySelectorAll("p");
     console.log(innerdocs[1].innerText);
-    return innerdocs[1].innerText;
+    let st = innerdocs[1].innerText.replaceAll(" ", "").split("•")
+    st = st[0] + " ( " + st[2] +")";
+    let st2 = innerdocs[2].innerText;
+    console.log([st,st2]);
+    return st + "19" + st2;
   }catch (error) {
     console.log('Error fetching the RSS feed:', error);
   }  
   return "ERROR";
 }
 
+const Word = (props) => {
+  let wotd = props.res.split("19");
+  let def = wotd[1];
+  wotd = wotd[0];
+    return (
+    <div className="word">
+      <h4>{wotd}</h4>
+      <p>{def}</p>
+    </div>
+  );
+}
+
 
 const App = () => {
-  const [wotd, setwotd] = useState("unavailable");
+  const [wotd, setwotd] = useState("Word Unavailable19Definition Unavailable");
   useEffect(() => {
   //Runs only on the first render
-  setwotd(fetchRSS());
+  async function setup() {
+    setwotd(await fetchRSS());   
+  };
+  setup();
+  // setwotd(fetchRSS());
+  // let arr = await fetchRSS();
+  // setwotd(["Word", "Def"]);
+  // console.log(fetchRSS());
+  // console.log(wotd);
 }, []);
   // {console.log("Created App");}
   // fetchRSS();
@@ -84,7 +108,8 @@ const App = () => {
         <Wrapper title="Weather" newID='four' />
         <Wrapper title="News" newID='five'/>
         <Wrapper title="Word of the day" newID='six'>
-          <p>{wotd}</p>
+          <Word res={wotd}>
+          </Word>
         </Wrapper>
         <Wrapper title="Learn a language" newID='seven'/>
         <Wrapper title="Quote of the day" newID='eight'/>

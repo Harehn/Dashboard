@@ -48,6 +48,7 @@ list-style-type: none;
   background-color: #e7d1ec;
   border-radius: 15px;
   min-height:450px;
+  overflow: hidden;
 }
 
 .boxes h3 {
@@ -55,6 +56,28 @@ list-style-type: none;
   margin: 2px 30px; /*Top, Bottom || Right, Left*/
   border-image: 
    linear-gradient(0deg,#B497D6 2px,#0000 0) fill 0;
+}
+
+.boxes:hover {
+  overflow: visible;
+}
+
+.word {
+  margin: 0;
+  padding:0;
+}
+
+.word h4, p {
+  padding: 1px auto;
+  margin: 1px auto;
+  text-align: center;
+}
+
+.word p:hover{
+  position:relative;
+  z-index: 999;
+  background-color: #e7d1ec;
+  border-radius: 10px;
 }
 
 iframe{
