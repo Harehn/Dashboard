@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -27,10 +27,42 @@ const Footer = () => {
   );
 }
 
+async function fetchRSS() {
+  const proxyUrl = 'https://corsproxy.io/?';
+  const targetUrl = 'https://www.merriam-webster.com/wotd/feed/rss2';
+  const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
+  try {
+    console.log('Fetching URL:', fetchUrl); // Debugging 1: Log the request URL
+    const response = await fetch(fetchUrl);
+    const data = await response.text();
+    
+    console.log('Data fetched:', data); // Debugging 2: Log the raw data
+    
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(data, "application/xml");
+    const item = xmlDoc.getElementsByTagName("item")[0];
+    const str = item.querySelector("description").textContent;
+    const innerdocs = parser.parseFromString(str, "text/html").querySelectorAll("p");
+    console.log(innerdocs[1].innerText);
+    return innerdocs[1].innerText;
+  }catch (error) {
+    console.log('Error fetching the RSS feed:', error);
+  }  
+  return "ERROR";
+}
+
+
 const App = () => {
+  const [wotd, setwotd] = useState("unavailable");
+  useEffect(() => {
+  //Runs only on the first render
+  setwotd(fetchRSS());
+}, []);
+  // {console.log("Created App");}
+  // fetchRSS();
   return (
     <div className='app'>
-      <h1>Hello Nitin!!</h1>
+      <h2>Hello Nitin!!</h2>
       <div className='container'>
         <Wrapper title="Tasks" newID='two'>
           <input type="checkbox" id="task1" name="task1" value=""/>
@@ -51,7 +83,9 @@ const App = () => {
         </Wrapper>
         <Wrapper title="Weather" newID='four' />
         <Wrapper title="News" newID='five'/>
-        <Wrapper title="Word of the day" newID='six'/>
+        <Wrapper title="Word of the day" newID='six'>
+          <p>{wotd}</p>
+        </Wrapper>
         <Wrapper title="Learn a language" newID='seven'/>
         <Wrapper title="Quote of the day" newID='eight'/>
         <Wrapper title="Fun Fact" newID='nine'/>
