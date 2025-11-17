@@ -80,6 +80,10 @@ list-style-type: none;
   border-radius: 10px;
 }
 
+#taskcontainer {
+  margin: 1px 7%;
+}
+
 iframe{
   height:85%;
   width: 90%;

@@ -89,14 +89,16 @@ const App = () => {
       <h2>Hello Nitin!!</h2>
       <div className='container'>
         <Wrapper title="Tasks" newID='two'>
-          <input type="checkbox" id="task1" name="task1" value=""/>
-          <label for="task1">Read emails</label> <br/>
-          <input type="checkbox" id="task2" name="task2" value=""/>
-          <label for="task2">House chores</label> <br/>
-          <input type="checkbox" id="task3" name="task3" value=""/>
-          <label for="task3"> Exercise</label> <br/>
-          <input type="checkbox" id="task4" name="task4" value=""/>
-          <label for="task4">Journal</label> <br/>
+          <div id='taskcontainer'>
+            <input type="checkbox" id="task1" name="task1" value=""/>
+            <label for="task1">Read emails</label> <br/>
+            <input type="checkbox" id="task2" name="task2" value=""/>
+            <label for="task2">House chores</label> <br/>
+            <input type="checkbox" id="task3" name="task3" value=""/>
+            <label for="task3"> Exercise</label> <br/>
+            <input type="checkbox" id="task4" name="task4" value=""/>
+            <label for="task4">Journal</label> <br/>
+          </div>
         </Wrapper>
         <Wrapper title="Note to self" newID='three'>
           <ol>
