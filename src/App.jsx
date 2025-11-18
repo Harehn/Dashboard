@@ -27,7 +27,29 @@ const Footer = () => {
   );
 }
 
-async function fetchRSS() {
+async function fetchRSSQuote() {
+  const proxyUrl = 'https://corsproxy.io/?';
+  const targetUrl = 'https://feeds.feedburner.com/quotationspage/mqotd';
+  const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
+  try {
+    console.log('Fetching URL:', fetchUrl); // Debugging 1: Log the request URL
+    const response = await fetch(fetchUrl);
+    const data = await response.text();
+    
+    // console.log('Data fetched:', data); // Debugging 2: Log the raw data
+    
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(data, "application/xml");
+    const item = xmlDoc.getElementsByTagName("item")[0];
+    const str = item.querySelector("description").textContent;
+    return str;    
+  }catch (error) {
+    console.log('Error fetching the RSS feed:', error);
+  }  
+  return "ERROR";
+}
+
+async function fetchRSSWord() {
   const proxyUrl = 'https://corsproxy.io/?';
   const targetUrl = 'https://www.merriam-webster.com/wotd/feed/rss2';
   const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
@@ -67,13 +89,23 @@ const Word = (props) => {
   );
 }
 
+const Quote = (props) => {
+  let quote = props.res;
+  return (
+  <div className="word">
+    <p>{quote}</p>
+  </div>
+);
+}
 
 const App = () => {
   const [wotd, setwotd] = useState("Word Unavailable19Definition Unavailable");
+  const [qotd, setqotd] = useState("Quote unavailable");
   useEffect(() => {
   //Runs only on the first render
   async function setup() {
-    setwotd(await fetchRSS());   
+    setwotd(await fetchRSSWord());   
+    setqotd(await fetchRSSQuote())
   };
   setup();
   // setwotd(fetchRSS());
@@ -114,7 +146,10 @@ const App = () => {
           </Word>
         </Wrapper>
         <Wrapper title="Learn a language" newID='seven'/>
-        <Wrapper title="Quote of the day" newID='eight'/>
+        <Wrapper title="Quote of the day" newID='eight'>
+          <Quote res={qotd}>
+          </Quote>
+        </Wrapper>
         <Wrapper title="Fun Fact" newID='nine'/>
         <Wrapper title="Calendar" newID='ten'>
           <iframe src="https://calendar.google.com/calendar/embed?height=200&wkst=1&ctz=America%2FToronto&showPrint=0&mode=AGENDA&showTitle=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%239e69af&color=%230b8043" frameborder="0" scrolling="no"></iframe>
