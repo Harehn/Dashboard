@@ -32,7 +32,7 @@ async function fetchRSSQuote() {
   const targetUrl = 'https://feeds.feedburner.com/quotationspage/mqotd';
   const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
   try {
-    console.log('Fetching URL:', fetchUrl); // Debugging 1: Log the request URL
+    // console.log('Fetching URL:', fetchUrl); // Debugging 1: Log the request URL
     const response = await fetch(fetchUrl);
     const data = await response.text();
     
@@ -100,6 +100,28 @@ async function fetchRSSJoke() {
   return "ERROR";
 }
 
+async function fetchRSSGerman() {
+  const proxyUrl = 'https://corsproxy.io/?';
+  const targetUrl = 'https://feeds.feedblitz.com/german-word-of-the-day&x=1';
+  const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
+  try {
+    console.log('Fetching URL:', fetchUrl); // Debugging 1: Log the request URL
+    const response = await fetch(fetchUrl);
+    const data = await response.text();
+    
+    // console.log('Data fetched:', data); // Debugging 2: Log the raw data
+    
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(data, "application/xml");
+    const item = xmlDoc.querySelector("item").textContent;
+    console.log(item.split("\n")[21]);
+    return item.split("\n")[21].replace(":", "19");
+  }catch (error) {
+    console.log('Error fetching the RSS feed:', error);
+  }  
+  return "ERROR";
+}
+
 const Word = (props) => {
   let wotd = props.res.split("19");
   let def = wotd[1];
@@ -125,12 +147,15 @@ const App = () => {
   const [wotd, setwotd] = useState("Word Unavailable19Definition Unavailable");
   const [qotd, setqotd] = useState("Quote unavailable");
   const [jotd, setjotd] = useState("Joke unavailable");
+  const [gotd, setgotd] = useState("German Word unavailable");
+
   useEffect(() => {
   //Runs only on the first render
   async function setup() {
     setwotd(await fetchRSSWord());   
-    setqotd(await fetchRSSQuote())
-    setjotd(await fetchRSSJoke())
+    setqotd(await fetchRSSQuote());
+    setjotd(await fetchRSSJoke());
+    setgotd(await fetchRSSGerman());
   };
   setup();
   // setwotd(fetchRSS());
@@ -170,7 +195,10 @@ const App = () => {
           <Word res={wotd}>
           </Word>
         </Wrapper>
-        <Wrapper title="Learn a language" newID='seven'/>
+        <Wrapper title="Learn German" newID='seven'>
+          <Word res={gotd}>
+          </Word>
+          </Wrapper>
         <Wrapper title="Quote of the day" newID='eight'>
           <Quote res={qotd}>
           </Quote>
