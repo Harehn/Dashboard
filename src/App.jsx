@@ -143,6 +143,9 @@ const Quote = (props) => {
 );
 }
 
+const weather = 
+function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+
 const App = () => {
   const [wotd, setwotd] = useState("Word Unavailable19Definition Unavailable");
   const [qotd, setqotd] = useState("Quote unavailable");
@@ -189,8 +192,14 @@ const App = () => {
             <li>Do not rush and plan first. Failing to plan is planning to fail.</li>
           </ol>
         </Wrapper>
-        <Wrapper title="Weather" newID='four' />
-        <Wrapper title="News" newID='five'/>
+        <Wrapper title="Weather" newID='four'>
+          <div className='weathercontainer'>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/45d50n73d57/montreal/" data-label_1="MONTREAL" data-label_2="WEATHER" data-theme="original" >MONTREAL WEATHER</a>
+        </div>
+        </Wrapper>
+        <Wrapper title="News" newID='five'>
+          <iframe width="200" height="200"  src="https://rss.app/embed/v1/carousel/UvdZUN7igbtqDPJO" frameborder="0"></iframe>
+          </Wrapper>
         <Wrapper title="Word of the day" newID='six'>
           <Word res={wotd}>
           </Word>
