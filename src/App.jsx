@@ -149,7 +149,7 @@ function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id
 const App = () => {
   const [wotd, setwotd] = useState("Word Unavailable19Definition Unavailable");
   const [qotd, setqotd] = useState("Quote unavailable");
-  const [jotd, setjotd] = useState("Joke unavailable");
+  // const [jotd, setjotd] = useState("Joke unavailable");
   const [gotd, setgotd] = useState("German Word unavailable");
 
   useEffect(() => {
@@ -157,7 +157,7 @@ const App = () => {
   async function setup() {
     setwotd(await fetchRSSWord());   
     setqotd(await fetchRSSQuote());
-    setjotd(await fetchRSSJoke());
+    // setjotd(await fetchRSSJoke());
     setgotd(await fetchRSSGerman());
   };
   setup();
@@ -198,7 +198,9 @@ const App = () => {
         </div>
         </Wrapper>
         <Wrapper title="News" newID='five'>
-          <iframe width="200" height="200"  src="https://rss.app/embed/v1/carousel/UvdZUN7igbtqDPJO" frameborder="0"></iframe>
+          <div className='dummy'>
+          <iframe width="280" height="500"  src="https://rss.app/embed/v1/carousel/UvdZUN7igbtqDPJO" frameborder="0"></iframe>
+          </div>
           </Wrapper>
         <Wrapper title="Word of the day" newID='six'>
           <Word res={wotd}>
@@ -212,14 +214,19 @@ const App = () => {
           <Quote res={qotd}>
           </Quote>
         </Wrapper>
-        <Wrapper title="Joke" newID='nine'>
+        {/* <Wrapper title="Joke" newID='nine'>
           <Quote res={jotd}>
           </Quote>
-          </Wrapper>
+          </Wrapper> */}
         <Wrapper title="Calendar" newID='ten'>
-          <iframe src="https://calendar.google.com/calendar/embed?height=200&wkst=1&ctz=America%2FToronto&showPrint=0&mode=AGENDA&showTitle=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%239e69af&color=%230b8043" frameborder="0" scrolling="no"></iframe>
+          {/* <iframe src="https://calendar.google.com/calendar/embed?height=200&wkst=1&ctz=America%2FToronto&showPrint=0&mode=AGENDA&showTitle=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%239e69af&color=%230b8043" frameborder="0" scrolling="no"></iframe> */}
+          <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&showPrint=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"></iframe>
         </Wrapper>
-        <Wrapper title="Music" newID='eleven'/>
+        <Wrapper title="Music" newID='eleven'>
+          <div className='dummy'>
+          <iframe width="200" height="200" src="https://www.youtube.com/embed/--bcqmbe_KE?list=PLYzbvH8SQ04lHco3YsB6wOqPtwPv3KNII" title="Nightcore - Lost In The Moment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="false"></iframe>
+          </div>
+        </Wrapper>
       </div>
       <Footer/>
     </div>
