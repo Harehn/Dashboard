@@ -76,6 +76,35 @@ async function fetchRSSWord() {
   }  
   return "ERROR";
 }
+
+async function fetchNews() {
+  const proxyUrl = 'https://corsproxy.io/?';
+  const targetUrl = 'https://feedx.net/rss/ap.xml';
+  const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
+  try {
+    console.log('Fetching URL:', fetchUrl); // Debugging 1: Log the request URL
+    const response = await fetch(fetchUrl);
+    const data = await response.text();
+    
+    // console.log('Data fetched:', data); // Debugging 2: Log the raw data
+    
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(data, "application/xml");
+    const item = xmlDoc.getElementsByTagName("item")[0];
+    const str = item.querySelector("description").textContent;
+    const innerdocs = parser.parseFromString(str, "text/html").querySelectorAll("p");
+    return innerdocs[1].innerText;
+    // let st = innerdocs[1].innerText.replaceAll(" ", "").split("•")
+    // st = st[0] + " ( " + st[2] +")";
+    // let st2 = innerdocs[2].innerText;
+    // console.log([st,st2]);
+    // return st + "19" + st2;
+  }catch (error) {
+    console.log('Error fetching the RSS feed:', error);
+  }  
+  return "ERROR";
+}
+
 async function fetchRSSJoke() {
   const proxyUrl = 'https://corsproxy.io/?';
   const targetUrl = 'https://jokesoftheday.net/jokes-feed/';
@@ -151,6 +180,7 @@ const App = () => {
   const [qotd, setqotd] = useState("Quote unavailable");
   // const [jotd, setjotd] = useState("Joke unavailable");
   const [gotd, setgotd] = useState("German Word unavailable");
+  const [notd, setnotd] = useState("News Not available")
 
   useEffect(() => {
   //Runs only on the first render
@@ -159,6 +189,7 @@ const App = () => {
     setqotd(await fetchRSSQuote());
     // setjotd(await fetchRSSJoke());
     setgotd(await fetchRSSGerman());
+    setnotd(await fetchNews());
   };
   setup();
   // setwotd(fetchRSS());
@@ -198,9 +229,9 @@ const App = () => {
         </div>
         </Wrapper>
         <Wrapper title="News" newID='five'>
-          <div className='dummy'>
-          <iframe width="280" height="500"  src="https://rss.app/embed/v1/carousel/UvdZUN7igbtqDPJO" frameborder="0"></iframe>
-          </div>
+        <Quote res={notd}>          
+          
+        </Quote>
           </Wrapper>
         <Wrapper title="Word of the day" newID='six'>
           <Word res={wotd}>
