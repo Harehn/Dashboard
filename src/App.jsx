@@ -234,7 +234,7 @@ const App = () => {
         </Quote>
           </Wrapper>
         <Wrapper title="Word of the day" newID='six'>
-          <Word res={wotd}>
+          <Word res={process.env.REACT_APP_WEATHER_API_KEY}>
           </Word>
         </Wrapper>
         <Wrapper title="Learn German" newID='seven'>
