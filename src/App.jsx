@@ -2,30 +2,10 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
-const Wrapper = (props) => {
-    return (
-    <div className="boxes" id={props.newID}>
-      <h3>{props.title}</h3>
-      {props.children}
-    </div>
-  );
-}
-
-const Footer = () => {
-  return (
-    <footer>
-      <div className='footer'>
-        <div class="links">
-          <a href="#">About Website</a>
-          <a href="https://harehn-kaundun.onrender.com/wip">About Me</a>
-          <a href="https://harehn-kaundun.onrender.com/Contact">Contact Me</a>
-        </div>
-        <p>Copyright © 2025 All rights reserved || Designed By: Nitin </p>
-      </div>
-    </footer>
-  );
-}
+import Wrapper from "./Components/Wrapper"
+import Footer from "./Components/Footer"
+import Quote from "./Components/Quote"
+import Word from "./Components/Word"
 
 async function fetchRSSQuote() {
   const proxyUrl = 'https://corsproxy.io/?';
@@ -151,30 +131,6 @@ async function fetchRSSGerman() {
   return "ERROR";
 }
 
-const Word = (props) => {
-  let wotd = props.res.split("19");
-  let def = wotd[1];
-  wotd = wotd[0];
-    return (
-    <div className="word">
-      <h4>{wotd}</h4>
-      <p>{def}</p>
-    </div>
-  );
-}
-
-const Quote = (props) => {
-  let quote = props.res;
-  return (
-  <div className="word">
-    <p>{quote}</p>
-  </div>
-);
-}
-
-const weather = 
-function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-
 const App = () => {
   const [wotd, setwotd] = useState("Word Unavailable19Definition Unavailable");
   const [qotd, setqotd] = useState("Quote unavailable");
@@ -234,7 +190,7 @@ const App = () => {
         </Quote>
           </Wrapper>
         <Wrapper title="Word of the day" newID='six'>
-          <Word res={process.env.REACT_APP_WEATHER_API_KEY}>
+          <Word res={wotd}>
           </Word>
         </Wrapper>
         <Wrapper title="Learn German" newID='seven'>
