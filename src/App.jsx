@@ -5,8 +5,11 @@ import Wrapper from "./Components/Wrapper"
 import Footer from "./Components/Footer"
 import Quote from "./Components/Quote"
 import Word from "./Components/Word"
+import Task from './Components/Task'
 
 import fetchRSSQuote, {fetchNews, fetchRSSGerman, fetchRSSWord} from './Components/APICalls'
+
+
 
 const App = () => {
   const [wotd, setwotd] = useState("Word Unavailable19Definition Unavailable");
@@ -29,16 +32,7 @@ const App = () => {
       <h2>Hello Nitin!!</h2>
       <div className='container'>
         <Wrapper title="Tasks" newID='two'>
-          <div id='taskcontainer'>
-            <input type="checkbox" id="task1" name="task1" value=""/>
-            <label for="task1">Read emails</label> <br/>
-            <input type="checkbox" id="task2" name="task2" value=""/>
-            <label for="task2">House chores</label> <br/>
-            <input type="checkbox" id="task3" name="task3" value=""/>
-            <label for="task3"> Exercise</label> <br/>
-            <input type="checkbox" id="task4" name="task4" value=""/>
-            <label for="task4">Journal</label> <br/>
-          </div>
+          <Task />
         </Wrapper>
         <Wrapper title="Note to self" newID='three'>
           <ol>
