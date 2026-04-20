@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer>
       <div className='footer'>
-        <div class="links">
+        <div className="links">
           <a href="#">About Website</a>
           <a href="https://harehn-kaundun.onrender.com/wip">About Me</a>
           <a href="https://harehn-kaundun.onrender.com/Contact">Contact Me</a>
