@@ -7,8 +7,9 @@ import Quote from "./Components/Quote"
 import Word from "./Components/Word"
 import Task from './Components/Task'
 
-import fetchRSSQuote, {fetchNews, fetchRSSGerman, fetchRSSWord} from './Components/APICalls'
+import fetchRSSQuote, {fetchNews, fetchRSSGerman, fetchRSSWord, getRandomQuote} from './Components/APICalls'
 
+import quotes from './data/quotes.json'
 
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
   //Runs only on the first render
   async function setup() {
     setwotd(await fetchRSSWord());   
-    setqotd(await fetchRSSQuote());
+    setqotd(await getRandomQuote(quotes));
     setgotd(await fetchRSSGerman());
     setnotd(await fetchNews());
   };
@@ -34,16 +35,12 @@ const App = () => {
         <Wrapper title="Tasks" newID='two'>
           <Task />
         </Wrapper>
-        <Wrapper title="Note to self" newID='three'>
-          <ol>
-            <li>Do not let the fear of failure hold you back.</li>
-            <li>When in doubt, take a deep breath first.</li>
-            <li>Do not rush and plan first. Failing to plan is planning to fail.</li>
-          </ol>
+        <Wrapper title="Motivational Quote of the Day" newID='three'>
+          {qotd}
         </Wrapper>
         <Wrapper title="Weather" newID='four'>
           <div className='weathercontainer'>
-        <a class="weatherwidget-io" href="https://forecast7.com/en/45d50n73d57/montreal/" data-label_1="MONTREAL" data-label_2="WEATHER" data-theme="original" >MONTREAL WEATHER</a>
+        <a className="weatherwidget-io" href="https://forecast7.com/en/45d50n73d57/montreal/" data-label_1="MONTREAL" data-label_2="WEATHER" data-theme="original" >MONTREAL WEATHER</a>
         </div>
         </Wrapper>
         <Wrapper title="News" newID='five'>
@@ -68,7 +65,7 @@ const App = () => {
         </Wrapper>
         <Wrapper title="Music" newID='eleven'>
           <div className='dummy'>
-          <iframe width="200" height="200" src="https://www.youtube.com/embed/--bcqmbe_KE?list=PLYzbvH8SQ04lHco3YsB6wOqPtwPv3KNII" title="Nightcore - Lost In The Moment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="false"></iframe>
+          {/* <iframe width="200" height="200" src="https://www.youtube.com/embed/--bcqmbe_KE?list=PLYzbvH8SQ04lHco3YsB6wOqPtwPv3KNII" title="Nightcore - Lost In The Moment" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}></iframe> */}
           </div>
         </Wrapper>
       </div>
