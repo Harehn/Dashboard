@@ -36,7 +36,8 @@ const App = () => {
           <Task />
         </Wrapper>
         <Wrapper title="Motivational Quote of the Day" newID='three'>
-          <Word res={qotd} />
+          {/* <Word res={qotd} /> */}
+          <Quote author={qotd[1]} quote = {qotd[0]}/>
         </Wrapper>
         <Wrapper title="Weather" newID='four'>
           <div className='weathercontainer'>
@@ -44,9 +45,9 @@ const App = () => {
         </div>
         </Wrapper>
         <Wrapper title="News" newID='five'>
-        <Quote res={notd}>          
+        <Word res={notd}>          
           
-        </Quote>
+        </Word>
           </Wrapper>
         <Wrapper title="Word of the day" newID='six'>
           <Word res={wotd}>
@@ -56,16 +57,15 @@ const App = () => {
           <Word res={gotd}>
           </Word>
           </Wrapper>
-        <Wrapper title="Quote of the day" newID='eight'>
-          <Quote res={qotd}>
-          </Quote>
-        </Wrapper>
         <Wrapper title="Calendar" newID='ten'>
           <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&showPrint=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"></iframe>
         </Wrapper>
         <Wrapper title="Music" newID='eleven'>
           <div className='dummy'>
           {/* <iframe width="200" height="200" src="https://www.youtube.com/embed/--bcqmbe_KE?list=PLYzbvH8SQ04lHco3YsB6wOqPtwPv3KNII" title="Nightcore - Lost In The Moment" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}></iframe> */}
+          <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/track/6Er8Fz6fuZNi5cvwQjv1ya?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          {/* {style="border-radius:12px"} */}
+          {/* width="100%" height="352" frameBorder="0" allowfullscreen="" */}
           </div>
         </Wrapper>
       </div>
