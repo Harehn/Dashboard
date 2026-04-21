@@ -1,0 +1,42 @@
+.footer{
+  margin: 1% auto 0 auto; /*Top | Right | Bottom | Left*/
+  height:100%;
+  overflow: auto;
+  background-color: #8a73a3;
+  /*position: -webkit-sticky; /* Safari */
+  /* bottom: 0; */
+  /* position:bottom; */
+  text-align:center;
+  display:flex;
+  flex-wrap:wrap;
+  overflow:auto;
+}
+
+.footer a{
+text-decoration:none;
+color: darkgray;
+transition:0.5s;
+padding: 0 1%; /*Top, Bottom || Right, Left*/
+}
+
+.footer a:hover{
+color:lightgray;
+}
+
+.footer .row ul li{
+list-style-type: none;
+}
+
+.links {
+  padding: 1.5% 30% 2% 30%; /*Top | Right | Bottom | Left*/
+  width:100%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.footer p {
+    color: #fff;
+    margin: 0 auto; /*Top, Bottom || Right, Left*/
+}
