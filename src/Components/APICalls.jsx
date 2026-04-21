@@ -33,7 +33,7 @@ export async function getRandomQuote(quotes){
     let newQuote = quotes.random();
     // console.log(String(newQuote['quote']) + ' - ' + String(newQuote['author']));
     // return "This is a test string";
-    return String(newQuote['quote']) + ' - ' + String(newQuote['author']);
+    return [String(newQuote['quote']) , String(newQuote['author'])];
   } catch {
     return "ERROR";
   }
