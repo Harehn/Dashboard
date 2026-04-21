@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import './css/App.css'
 
 import Wrapper from "./Components/Wrapper"
 import Footer from "./Components/Footer"
