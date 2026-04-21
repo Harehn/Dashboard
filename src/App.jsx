@@ -36,7 +36,7 @@ const App = () => {
           <Task />
         </Wrapper>
         <Wrapper title="Motivational Quote of the Day" newID='three'>
-          {qotd}
+          <Word res={qotd} />
         </Wrapper>
         <Wrapper title="Weather" newID='four'>
           <div className='weathercontainer'>

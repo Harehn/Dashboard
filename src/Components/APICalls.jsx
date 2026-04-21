@@ -30,10 +30,8 @@ Array.prototype.random = function () {
 
 export async function getRandomQuote(quotes){
   try {
-    console.log(quotes.random());
     let newQuote = quotes.random();
     return String(newQuote['quote']) + ' - ' + String(newQuote['author']);
-    return [12,13,14].random();
   } catch {
     return "ERROR";
   }
