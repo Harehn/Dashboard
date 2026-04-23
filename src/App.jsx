@@ -6,10 +6,12 @@ import Footer from "./Components/Footer"
 import Quote from "./Components/Quote"
 import Word from "./Components/Word"
 import Task from './Components/Task'
+import Weather from './Components/Weather'
 
 import fetchRSSQuote, {fetchNews, fetchRSSGerman, fetchRSSWord, getRandomQuote} from './Components/APICalls'
 
 import quotes from './data/quotes.json'
+
 
 
 const App = () => {
@@ -41,7 +43,8 @@ const App = () => {
         </Wrapper>
         <Wrapper title="Weather" newID='four'>
           <div className='weathercontainer'>
-        <a className="weatherwidget-io" href="https://forecast7.com/en/45d50n73d57/montreal/" data-label_1="MONTREAL" data-label_2="WEATHER" data-theme="original" >MONTREAL WEATHER</a>
+        {/* <a className="weatherwidget-io" href="https://forecast7.com/en/45d50n73d57/montreal/" data-label_1="MONTREAL" data-label_2="WEATHER" data-theme="original" >MONTREAL WEATHER</a> */}
+        <Weather/>
         </div>
         </Wrapper>
         <Wrapper title="News" newID='five'>
