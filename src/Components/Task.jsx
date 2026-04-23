@@ -1,23 +1,25 @@
 export default function Task() {
+  function listFromArray(){
   try{
-  people = ['Alice', 'Bob', 'Charlie'];
-  const listItems = people.map(person => <li>{person}</li>);
+    let tasks = ['Read Email', 'House chores', 'Exercise', 'Journal'];
+    let tasks2 = [];
+    for (const [index, element] of tasks.entries()) {
+      console.log(index, element);
+      var key1 = 
+      tasks2.push({index, element});
+    }
+    console.log(tasks2);
+    let listTasks = tasks2.map(task =><div> <input type="checkbox" id={task['index']} name={task['index']} value=""/> 
+                            <label htmlFor={task['index']}>{task['element']}</label> <br/></div>);
+    console.log(listTasks);
+    return (<div id='tasks'>{listTasks}</div>);
   }catch {
-
+    console.log("Error in Tasks");
   }
+}
   return (
     <div id='taskcontainer'>
-      <div id='tasks'>
-        {/* {listItems} */}
-        <input type="checkbox" id="task1" name="task1" value=""/>
-        <label htmlFor="task1">Read emails</label> <br/>
-        <input type="checkbox" id="task2" name="task2" value=""/>
-        <label htmlFor="task2">House chores</label> <br/>
-        <input type="checkbox" id="task3" name="task3" value=""/>
-        <label htmlFor="task3"> Exercise</label> <br/>
-        <input type="checkbox" id="task4" name="task4" value=""/>
-        <label htmlFor="task4">Journal</label> <br/>
-      </div>
+      {listFromArray()}
       <div id="empty"></div>
       <div className='buttons'>
         <button className='clear'>Clear checked tasks</button>
