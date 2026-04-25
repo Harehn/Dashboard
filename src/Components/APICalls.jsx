@@ -52,8 +52,26 @@ export async function fetchRSSWord() {
 }
 
 export async function fetchNews() {
+  const proxyUrl = 'https://corsproxy.io/?';
+  const targetUrl = 'https://feedx.net/rss/ap.xml';
+  const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
   try {
-    return "PlaceHolder for News"; 
+    console.log('Fetching URL:', fetchUrl); // Debugging 1: Log the request URL
+    const response = await fetch(fetchUrl);
+    const data = await response.text();
+      console.log(data); // Debugging 2: Log the raw data
+    
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(data, "application/xml");
+    const item = xmlDoc.getElementsByTagName("item")[0];
+    const str = item.querySelector("description").textContent;
+    const innerdocs = parser.parseFromString(str, "text/html").querySelectorAll("p");
+    return innerdocs[1].innerText;
+    // let st = innerdocs[1].innerText.replaceAll(" ", "").split("•")
+    // st = st[0] + " ( " + st[2] +")";
+    // let st2 = innerdocs[2].innerText;
+    // console.log([st,st2]);
+    // return st + "19" + st2;
   }catch (error) {
     console.log('Error fetching the RSS feed:', error);
   }  
