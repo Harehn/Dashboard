@@ -38,7 +38,6 @@ const App = () => {
           <Task />
         </Wrapper>
         <Wrapper title="Motivational Quote of the Day" newID='three'>
-          {/* <Word res={qotd} /> */}
           <Quote author={qotd[1]} quote = {qotd[0]}/>
         </Wrapper>
         <Wrapper title="Weather" newID='four'>
@@ -52,14 +51,14 @@ const App = () => {
           
         </Word>
           </Wrapper>
-        <Wrapper title="Word of the day" newID='six'>
+        {/* <Wrapper title="Word of the day" newID='six'>
           <Word res={wotd}>
           </Word>
         </Wrapper>
         <Wrapper title="Learn German" newID='seven'>
           <Word res={gotd}>
           </Word>
-          </Wrapper>
+          </Wrapper> */}
         <Wrapper title="Calendar" newID='ten'>
           <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&showPrint=0&src=NWE4NDJkZDA4MTdiMDhhNDQyODE2ZjgwODllNzc0ZDY3ZjUwZmI2ZTk4NDgwNGZiYTY2NTM5NzE4NDhlM2U0N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"></iframe>
         </Wrapper>
