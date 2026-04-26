@@ -1,7 +1,20 @@
+import { useEffect, useState } from 'react'
+
 export default function Task() {
+  const [tasks, setTasks] = useState(['Read Email', 'House chores', 'Exercise', 'Journal']);
+
+  useEffect(() => {
+    //Runs only on the first render
+    function setup() {
+        setTasks(['Choose Weather API to use', 'House chores', 'Exercise', 'Journal'])
+    };
+    setup();
+  }, []);
+
+
   function listFromArray(){
   try{
-    let tasks = ['Read Email', 'House chores', 'Exercise', 'Journal'];
+    // let tasks = ['Read Email', 'House chores', 'Exercise', 'Journal'];
     let tasks2 = [];
     for (const [index, element] of tasks.entries()) {
       console.log(index, element);
@@ -17,18 +30,37 @@ export default function Task() {
     console.log("Error in Tasks");
   }
 }
+function getChecked(){
+  let checkedList = []
+  for (let i = 0; i < tasks.length; i++){
+    let cbox = document.getElementById(i);
+    console.log(i, cbox.checked);
+    if (!cbox.checked) checkedList.push(i);
+  }
+  // console.log(checkedList);
+  // console.log(tasks.filter(task => checkedList.includes(tasks.indexOf(task))));
+  setTasks(tasks.filter(task => checkedList.includes(tasks.indexOf(task))));
+}
+function addTask(){
+  let itask = document.getElementById("enter");
+  let val = itask.value;
+  if (val == "") return 
+  itask.value = "";
+  let ntasks = [...tasks];
+  ntasks.push(val);
+  setTasks(ntasks);
+}
   return (
     <div id='taskcontainer'>
       {listFromArray()}
       <div id="empty"></div>
       <div className='buttons'>
-        <button className='clear'>Clear checked tasks</button>
+        <button className='clear' onClick={getChecked}>Clear checked tasks</button>
       </div>
       <div id='adder'>
         <input type="text" id='enter' placeholder="Eg. Buy Groceries"/>
-        <button id="add">Add New</button>
+        <button id="add" onClick={addTask}>Add New</button>
       </div>
     </div>
-
     );
 }
