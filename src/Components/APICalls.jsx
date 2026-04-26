@@ -52,7 +52,8 @@ export async function fetchRSSWord() {
 }
 
 export async function fetchNews() {
-  const proxyUrl = 'https://corsproxy.io/?';
+  return "Could not connect to AP news at the moment. Please try later.";
+  const proxyUrl = 'https://cors-anywhere.com/';
   const targetUrl = 'https://feedx.net/rss/ap.xml';
   const fetchUrl = `${proxyUrl}${encodeURIComponent(targetUrl)}`;
   try {
