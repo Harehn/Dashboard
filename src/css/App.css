@@ -250,3 +250,7 @@ h2{
   /* margin-top:4%; */
   margin:10%;
 }
+
+#tasks {
+  overflow:auto;
+}
