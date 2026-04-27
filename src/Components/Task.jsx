@@ -6,11 +6,13 @@ export default function Task() {
   useEffect(() => {
     //Runs only on the first render
     function setup() {
-        setTasks(['Choose Weather API to use', 'House chores', 'Exercise', 'Journal'])
+        setTasks(['Choose Weather API to use', 
+          'Implement rate limiting with CORS proxy',
+          'Fix project routing',
+          'Documentation and attributions'])
     };
     setup();
   }, []);
-
 
   function listFromArray(){
   try{
