@@ -53,6 +53,7 @@ export async function fetchRSSWord() {
 }
 export async function fetchNews(){
   const envvar = import.meta.env.VITE_APP_API_URL;
+  console.log(envvar);
   axios.get(envvar)
     .then((response) => console.log(response.data));
     return "Could not connect to AP news at the moment. Please try later.";
