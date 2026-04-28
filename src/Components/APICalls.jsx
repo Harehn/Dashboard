@@ -53,8 +53,10 @@ export async function fetchRSSWord() {
 }
 export async function fetchNews(){
   const envvar = import.meta.env.VITE_APP_API_URL;
-  console.log(envvar);
-  axios.get(envvar)
+  console.log(`https://proxy.corsfix.com/?${envvar}`);
+  axios.get(envvar, {
+  timeout: 5000, // 5 seconds
+})
     .then((response) => console.log(response.data));
     return "Could not connect to AP news at the moment. Please try later.";
 }
