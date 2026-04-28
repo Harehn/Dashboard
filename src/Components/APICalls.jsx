@@ -52,8 +52,9 @@ export async function fetchRSSWord() {
   return "ERROR";
 }
 export async function fetchNews(){
-  const envvar = import.meta.env.VITE_APP_API_URL;
-  console.log(`https://proxy.corsfix.com/?${envvar}`);
+  let envvar = import.meta.env.VITE_APP_API_URL;
+  let envvar = `https://proxy.corsfix.com/?${envvar}`
+  console.log(envvar);
   axios.get(envvar, {
   timeout: 5000, // 5 seconds
 })
