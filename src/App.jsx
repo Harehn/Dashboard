@@ -49,7 +49,6 @@ const App = () => {
         </div>
         </Wrapper>
         <Wrapper title="News" newID='five'>
-          {new Date().getMonth()}
           <ul>
             {notd.map((news) =>
             (<p><a href={news["url"]}>{news["title"]}</a></p>)
