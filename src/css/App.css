@@ -85,7 +85,7 @@ iframe{
   vertical-align: bottom;
 }
 #five:hover {
-  overflow: visible;
+  overflow: hidden;
 }
 #five>ul{
   margin:0;
