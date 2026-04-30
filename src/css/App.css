@@ -87,6 +87,16 @@ iframe{
 #five:hover {
   overflow: visible;
 }
+#five>ul{
+  margin:0;
+  padding:1%;
+
+}
+#five> ul >p {
+  text-align: left;
+  padding: 5%;
+  font-style:italic;
+}
 
 .container {
   height:80%;

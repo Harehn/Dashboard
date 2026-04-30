@@ -52,15 +52,33 @@ export async function fetchRSSWord() {
   return "ERROR";
 }
 export async function fetchNews(){
-  let envvar = import.meta.env.VITE_APP_API_URL;
-  envvar = `https://proxy.corsfix.com/?${envvar}`;
-  console.log(envvar);
-  axios.get(envvar, {
-  timeout: 5000, // 5 seconds
-})
-    .then((response) => console.log(response.data));
-    return "Could not connect to AP news at the moment. Please try later.";
+  try {
+    // throw "Error News";
+    let envvar = import.meta.env.VITE_APP_API_URL;
+    const response = await fetch(envvar);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  }catch(error){
+    console.log(error.message);
+    return "News Error!";
+  }
+  return "Placeholder text";
 }
+// export async function fetchNews(){
+//   let envvar = import.meta.env.VITE_APP_API_URL;
+//   let reply = [];
+//   console.log(envvar);
+//   axios.get(envvar, {
+//   timeout: 5000, // 5 seconds
+// })
+//     .then((response) => {console.log(response.data);reply = response.data; return reply})
+//     .catch((error) => {
+//     console.log(error.message);
+//         return "Could not connect to AP news at the moment. Please try later.";
+//   });
+//   // return "News ERROR";
+// }
 
 // export async function fetchNews() {
 //   return "Could not connect to AP news at the moment. Please try later.";
