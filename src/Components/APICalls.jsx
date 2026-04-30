@@ -4,7 +4,7 @@ Array.prototype.random = function () {
   return this[Math.floor((Math.random()*this.length))];
 }
 
-export async function getRandomQuote(quotes){
+export default async function getRandomQuote(quotes){
   try {
     let newQuote = quotes.random();
     return [String(newQuote['quote']) , String(newQuote['author'])];

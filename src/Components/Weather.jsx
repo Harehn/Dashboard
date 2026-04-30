@@ -16,7 +16,7 @@ export default function Weather() {
 
   return (
     
-    <div class="commonninja_component pid-2b8bd3b5-e567-453c-a329-f2b3df5766e9"></div>
+    <div className="commonninja_component pid-2b8bd3b5-e567-453c-a329-f2b3df5766e9"></div>
   );
 
 }

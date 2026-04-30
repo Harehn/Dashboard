@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './css/App.css'
 import axios from "axios";
 
@@ -8,9 +9,13 @@ import Quote from "./Components/Quote"
 import Task from './Components/Task'
 import Weather from './Components/Weather'
 
-import fetchRSSQuote, {fetchNews, getRandomQuote} from './Components/APICalls'
+import getRandomQuote, {fetchNews} from './Components/APICalls'
 
 import quotes from './data/quotes.json'
+
+function About(){
+  return <h1>About Page</h1>
+}
 
 const App = () => {
   // ----------------COMPONENT SET UP ----------------------------
