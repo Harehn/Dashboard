@@ -48,7 +48,7 @@ const App = () => {
         <Wrapper title="Weather (commoninja.com)" newID='four'>
           <div className='weathercontainer'>
         {/* COMMENT THIS OUT LOCALLY BECAUSE OF FREQUENT CALLS */}
-        {/* <Weather/> */}
+        <Weather/>
         </div>
         </Wrapper>
 
