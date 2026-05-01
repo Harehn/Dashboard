@@ -1,10 +1,12 @@
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
 import '../css/Footer.css'
 const Footer = () => {
   return (
     <footer>
       <div className='footer'>
         <div className="links">
-          <a href="#">About Website</a>
+          <Link to="/about">About</Link>
           <a href="https://harehn-kaundun.onrender.com/wip">About Me</a>
           <a href="https://harehn-kaundun.onrender.com/Contact">Contact Me</a>
         </div>
