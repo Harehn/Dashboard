@@ -40,3 +40,14 @@ list-style-type: none;
     color: #fff;
     margin: 0 auto; /*Top, Bottom || Right, Left*/
 }
+
+.innerdoc {
+  margin: 0 20%;
+}
+.innerdoc > p {
+  text-align: left;
+}
+.app {
+  display:flex;
+  flex-direction: column;;
+}

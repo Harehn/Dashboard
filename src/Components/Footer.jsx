@@ -6,7 +6,8 @@ const Footer = () => {
     <footer>
       <div className='footer'>
         <div className="links">
-          <Link to="/about">About</Link>
+          <Link to="/">Home</Link>
+          <Link to="/about">About Website</Link>
           <a href="https://harehn-kaundun.onrender.com/wip">About Me</a>
           <a href="https://harehn-kaundun.onrender.com/Contact">Contact Me</a>
         </div>

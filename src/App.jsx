@@ -8,14 +8,11 @@ import Footer from "./Components/Footer"
 import Quote from "./Components/Quote"
 import Task from './Components/Task'
 import Weather from './Components/Weather'
+import About from './Components/About'
 
 import getRandomQuote, {fetchNews} from './Components/APICalls'
 
 import quotes from './data/quotes.json'
-
-function About(){
-  return <h1>About Page</h1>
-}
 
 const Main = () => {
   // ----------------COMPONENT SET UP ----------------------------
