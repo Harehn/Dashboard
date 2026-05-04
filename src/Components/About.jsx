@@ -47,6 +47,15 @@ const About = () => {
             You can fork the repository and deploy specific commits to see the different versions of the website. </p>
     </div>
     </div>
+
+    <div className="boxes">
+    <div className="innerdoc">
+        <h3>Tech Stack</h3>
+        <p><b>Tech Stack:</b> React, npm, Render, Express JS, Tailwind CSS, Responsive Design, Vite, JSON <br/>
+            <b>GitHub:</b> <a href="https://github.com/Harehn/Dashboard" target="_blank" rel="noopener noreferrer">https://github.com/Harehn/Dashboard</a> <br/>
+            <b>Live Website:</b> <a href="https://dashboard-s813.onrender.com/" target="_blank" rel="noopener noreferrer">https://dashboard-s813.onrender.com/</a> </p>
+    </div>
+    </div>
     <Footer/>
   </div>
 );
