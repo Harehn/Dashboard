@@ -264,3 +264,8 @@ h2{
 #tasks {
   overflow:auto;
 }
+
+.para {
+  /* Top right bottom left */
+  margin: 0 10% 10px 10%;
+}

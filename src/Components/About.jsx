@@ -3,7 +3,7 @@ const About = () => {
   return (
   <div className="about">
     <h2>About Website</h2>
-    <div className="boxes">
+    <div className="boxes para">
         <h3>Summary</h3>
         <div className="innerdoc">
         <p>This website is a proof of concept of a dashboard where you can get most of the things you need to. 
@@ -21,7 +21,7 @@ const About = () => {
         </div>
     </div>
 
-    <div className="boxes">
+    <div className="boxes para">
     <div className="innerdoc">
         <h3>Attribution</h3>
         <p>Here are the attribution for the API of the modules.</p>
@@ -36,7 +36,7 @@ const About = () => {
     </div>
     </div>
 
-    <div className="boxes">
+    <div className="boxes para">
     <div className="innerdoc">
         <h3>Use of AI</h3>
         <p>Although some code snippets were referenced, most of the code was written from scratch. 
@@ -48,7 +48,7 @@ const About = () => {
     </div>
     </div>
 
-    <div className="boxes">
+    <div className="boxes para">
     <div className="innerdoc">
         <h3>Tech Stack</h3>
         <p><b>Tech Stack:</b> React, npm, Render, Express JS, Tailwind CSS, Responsive Design, Vite, JSON <br/>
